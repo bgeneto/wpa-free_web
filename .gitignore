@@ -1,4 +1,4 @@
 free-server/
 **/.env
-**/.sqlite3
+**/db.sqlite3
 **/.bkp
