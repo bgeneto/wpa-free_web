@@ -1,0 +1,35 @@
+# ignore python virtual envs 
+**/venv
+**/.venv
+**/env
+!.env
+!**/.env
+# ignore pyc compiled and cached files
+**/*.pyc
+**/__pycache__
+# ignore .git and .cache folders
+**/.git
+**/.git*
+**/.gitignore
+**/.cache
+# ignore all *.class files in all folders, including build root
+**/*.class
+# ignore all markdown files (md) beside all README*.md
+*.md
+!README*.md
+# ignore all text files (txt) except requirements.txt and packages.txt
+*.txt
+!requirements.txt
+!REQUIREMENTS.txt
+!packages.txt
+!PACKAGES.txt
+!packages-base.txt
+!PACKAGES-BASE.txt
+# ignore Dockerfile and docker-compose
+Dockerfile
+Dockerfile.*
+docker-compose.*
+# ignore some folders
+logs/
+data/
+utils/

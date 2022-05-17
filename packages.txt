@@ -1,0 +1,7 @@
+curl
+iputils-ping
+lsof
+gettext
+nano
+procps
+wget
