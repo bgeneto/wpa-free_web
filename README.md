@@ -21,7 +21,7 @@ Besides cloning this repo to a directory of your choice (e.g. /opt/docker), you 
 cd /opt/docker
 git clone https://github.com/bgeneto/wpa-free_web.git
 cd wpa-free_web
-git clone https://github.com/e-lab-FREE/FREE_Web.git ./free-server
+git clone --recursive https://github.com/e-lab-FREE/FREE_Web.git ./free-server
 ```
 
 ## Configure
