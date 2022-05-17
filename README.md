@@ -41,7 +41,7 @@ Now we can build and run the container by simply issuing:
 docker compose up -d
 ```
 
-Check docker logs if bebug is needed:
+Check docker logs if debug is needed:
 
 ```bash
 docker logs webapp
