@@ -27,7 +27,8 @@ git clone https://github.com/e-lab-FREE/FREE_Web.git ./free-server
 ## Configure
 
 Rename the `.env.tmp` file inside the `config` folder to `.env` and change several parameters like `FREE_SECRET` and `FREE_ALLOWED_HOSTS`.
-Rename also the provided initial database file from `db.sqlite3.tmp` file to `db.sqlite3`. 
+Rename also the provided initial database file from `db.sqlite3.tmp` file to `db.sqlite3`. The default user/pass in this database is provided by 
+the FREE_Web repo, usually it is wp-admin/temporary123.
 
 ```bash
 mv config/.env.tmp config/.env
