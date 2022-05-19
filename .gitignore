@@ -3,3 +3,4 @@ config/
 free-server/
 **/.bkp
 **/.env
+**/.git
