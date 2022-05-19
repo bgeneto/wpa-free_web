@@ -16,8 +16,8 @@ ENV PATH=/root/.local/bin:$PATH
 RUN apt-get update && xargs apt-get install -y </tmp/packages.txt
 COPY ./config/.env $INSTDIR/freeweb/.env
 RUN python3 manage.py collectstatic
-RUN python3 manage.py makemigrations
-RUN python3 manage.py migrate
+#RUN python3 manage.py makemigrations
+#RUN python3 manage.py migrate
 RUN python3 ./manage.py compilemessages
 RUN python3 ./manage.py makemessages -d djangojs -a
 RUN python3 ./manage.py makemessages -a
