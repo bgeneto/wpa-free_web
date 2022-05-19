@@ -15,11 +15,10 @@ volumes:
       device: ${STORAGE}/data
 
 services:
-
   mariadb:
     image: mariadb
     #image: percona/percona-server:latest
-    container_name: mariadb
+    container_name: ${MYSQL_HOST}
     hostname: ${MYSQL_HOST}
     ports:
       - 3306:3306
@@ -44,7 +43,6 @@ services:
       placement:
         constraints:
           - node.role==manager
-
   webapp:
     build: 
       context: ./
