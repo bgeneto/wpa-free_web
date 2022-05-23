@@ -6,13 +6,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ${STORAGE}/config
+      device: ./config
   data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: ${STORAGE}/data
+      device: ./data
 
 services:
   mariadb:
