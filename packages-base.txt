@@ -3,3 +3,4 @@ python3-dev
 mariadb-client
 libmariadb-dev
 default-libmysqlclient-dev
+libpq-dev
