@@ -3,3 +3,4 @@ flask
 flask_cors
 mysql-connector-python
 mysqlclient
+psycopg2
