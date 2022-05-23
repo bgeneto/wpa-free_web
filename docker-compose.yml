@@ -7,7 +7,7 @@ volumes:
       type: none
       o: bind
       device: /opt/docker/wpa-free_web/dbconfig
-  data:
+  dbdata:
     driver: local
     driver_opts:
       type: none
