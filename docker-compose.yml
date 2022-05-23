@@ -6,13 +6,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ./config
+      device: ./dbconfig
   data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: ./data
+      device: ./dbdata
 
 services:
   mariadb:
@@ -26,7 +26,7 @@ services:
     restart: always
     volumes:
       - dbconfig:/etc/mysql/mariadb.conf.d
-      - data:/var/lib/mysql
+      - dbdata:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
