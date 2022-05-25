@@ -10,7 +10,10 @@ All python packages and libraries required to run the container are already list
 You will obviously need `git`, `docker` and `docker compose` installed before cloning and running the docker container. 
 
 ```bash 
-sudo apt install git docker-compose-plugin docker-ce
+# install docker:
+curl -fsSL get.docker.com | sudo sh
+# install git and docker compose:
+sudo apt install git docker-compose-plugin
 ```
 
 ## Install procedure
