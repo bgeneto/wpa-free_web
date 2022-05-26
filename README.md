@@ -21,8 +21,10 @@ sudo apt install git docker-compose-plugin
 Besides cloning this repo to a directory of your choice (e.g. /opt/docker), you will also need to clone the original FREE_Web repo to the `free-server` folder, just like this:
 
 ```bash
+mkdir -p /opt/docker
 cd /opt/docker
-git clone https://github.com/bgeneto/wpa-free_web.git
+sudo git clone https://github.com/bgeneto/wpa-free_web.git
+sudo chown -R $USER:$USER /opt/docker/wpa-free_web
 cd wpa-free_web
 git clone --recursive -b dev-unb https://github.com/e-lab-FREE/FREE_Web.git ./free-server
 ```
@@ -32,6 +34,7 @@ git clone --recursive -b dev-unb https://github.com/e-lab-FREE/FREE_Web.git ./fr
 Rename both `.env.tmp` files inside the root and the `config` folders to `.env` and change several parameters like `MYSQL_HOST`, `MYSQL_USER`, `FREE_SECRET`, `FREE_ALLOWED_HOSTS` etc...
 
 ```bash
+mv .env.tmp .env
 mv config/.env.tmp config/.env
 ```
 Build and run the container
