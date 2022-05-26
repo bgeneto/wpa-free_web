@@ -37,12 +37,17 @@ Rename both `.env.tmp` files inside the root and the `config` folders to `.env` 
 mv .env.tmp .env
 mv config/.env.tmp config/.env
 ```
-Build and run the container
-Now we can build and run the container by simply issuing: 
+
+If you are going to use mariadb DBMS then also rename the `my.cnf.tmp` file (to `my.cnf`) inside the `free-server` folder and edit the settings accordingly.
+
+## Build and run the container
+Now you can build and run the container by simply issuing: 
 
 ```bash
 docker compose up -d
 ```
+
+## Debug errors
 
 Check docker logs if debug is needed:
 
