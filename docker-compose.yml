@@ -17,7 +17,6 @@ volumes:
 services:
   mariadb:
     image: mariadb
-    #image: percona/percona-server:latest
     container_name: ${MYSQL_HOST}
     hostname: ${MYSQL_HOST}
     ports:
@@ -48,7 +47,6 @@ services:
       context: ./
     container_name: webapp
     hostname: webapp
-    #network_mode: host
     restart: always
     ports:
       - 8000:8000
