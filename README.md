@@ -45,7 +45,7 @@ mv free-server/my.cnf.tmp free-server/my.cnf
 Now import the template sql file to your mariadb container: 
 
 ```
-docker exec mariadb mysql --user=<freewebdbuser> --password=<freewebdbuserpasswd> freeweb < ./free-server/freeweb-mariadb-template.sql
+docker exec -i mariadb mysql --user=<freewebdbuser> --password=<freewebdbuserpasswd> freeweb < ./free-server/freeweb-mariadb-template.sql
 ``` 
 
 If using sqlite3 then simply copy the template file to the `config` folder:
