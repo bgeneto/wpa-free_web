@@ -24,7 +24,7 @@ Besides cloning this repo to a directory of your choice (e.g. /opt/docker), you 
 cd /opt/docker
 git clone https://github.com/bgeneto/wpa-free_web.git
 cd wpa-free_web
-git clone --recursive https://github.com/e-lab-FREE/FREE_Web.git ./free-server
+git clone --recursive -b dev-unb https://github.com/e-lab-FREE/FREE_Web.git ./free-server
 ```
 
 ## Configure
@@ -33,7 +33,6 @@ Rename both `.env.tmp` files inside the root and the `config` folders to `.env` 
 
 ```bash
 mv config/.env.tmp config/.env
-mv config/db.sqlite3.tmp config/db.sqlite3
 ```
 Build and run the container
 Now we can build and run the container by simply issuing: 
