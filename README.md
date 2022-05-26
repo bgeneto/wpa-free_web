@@ -42,6 +42,10 @@ If you are going to use mariadb DBMS then also rename the `my.cnf.tmp` file (to 
 ```bash
 mv free-server/my.cnf.tmp free-server/my.cnf
 ```
+If using sqlite3 then simply copy the template file to the `config` folder:
+```bash
+cp -v free-server/db_template.sqlite3 config/db.sqlite3
+```
 
 ## Build and run the container
 Now you can build and run the container by simply issuing: 
