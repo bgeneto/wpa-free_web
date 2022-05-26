@@ -40,7 +40,7 @@ mv config/.env.tmp config/.env
 
 If you are going to use mariadb DBMS then also rename the `my.cnf.tmp` file (to `my.cnf`) inside the `free-server` folder and edit the settings accordingly.
 ```bash
-mv config/my.cnf.tmp config/my.cnf
+mv free-server/my.cnf.tmp free-server/my.cnf
 ```
 
 ## Build and run the container
