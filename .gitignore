@@ -1,6 +1,7 @@
 data/
 dbdata/
 config/
+dbconfig/
 free-server/
 **/.bkp
 **/.env
