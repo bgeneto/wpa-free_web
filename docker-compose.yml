@@ -1,49 +1,8 @@
 version: '3.9'
 
-volumes:
-  dbconfig:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /opt/docker/wpa-free_web/dbconfig
-  dbdata:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /opt/docker/wpa-free_web/dbdata
-
 services:
-  mariadb:
-    image: mariadb
-    container_name: ${MYSQL_HOST}
-    hostname: ${MYSQL_HOST}
-    ports:
-      - 3306:3306
-    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW --skip-innodb-read-only-compressed --disable-log-bin
-    restart: always
-    volumes:
-      - dbconfig:/etc/mysql/mariadb.conf.d
-      - dbdata:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    deploy:
-      restart_policy:
-        condition: on-failure
-        max_attempts: 5
-        window: 20s
-      placement:
-        constraints:
-          - node.role==manager
   webapp:
-    build: 
+    build:
       context: ./
     container_name: webapp
     hostname: webapp
@@ -51,21 +10,9 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./config/db.sqlite3:/free-server/db.sqlite3
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     environment:
       - TZ=America/Sao_Paulo
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    depends_on:
-      - mariadb
-    deploy:
-      restart_policy:
-        condition: on-failure
-        max_attempts: 5
-        window: 20s
-      placement:
-        constraints:
-          - node.role==manager
-
