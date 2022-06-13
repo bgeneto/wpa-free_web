@@ -32,4 +32,5 @@ docker-compose.*
 # ignore some folders
 logs/
 data/
+dbdata/
 utils/
