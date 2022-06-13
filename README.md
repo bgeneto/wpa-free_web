@@ -31,26 +31,26 @@ git clone --recursive -b dev-unb https://github.com/e-lab-FREE/FREE_Web.git ./fr
 
 ## Configure
 
-Rename both `.env.tmp` files inside the root and the `config` folders to `.env` and change several parameters like `MYSQL_HOST`, `MYSQL_USER`, `FREE_SECRET`, `FREE_ALLOWED_HOSTS` etc...
+Rename `.env.tmp` file inside the `config` folder to `.env` and change the required parameters
 
 ```bash
-mv .env.tmp .env
 mv config/.env.tmp config/.env
 ```
 
-If you are going to use mariadb DBMS then also rename the `my.cnf.tmp` file (to `my.cnf`) inside the `free-server` folder and edit the settings accordingly.
+If you are going to use mariadb DBMS then also rename the `my.cnf.tmp` file (to `my.cnf`) inside the `free-server` folder and edit its contents accordingly.
 ```bash
 mv free-server/my.cnf.tmp free-server/my.cnf
 ```
+
 Now import the template sql file to your mariadb container: 
 
 ```
 docker exec -i mariadb mysql --user=<freewebdbuser> --password=<freewebdbuserpasswd> freeweb < ./free-server/freeweb-mariadb-template.sql
 ``` 
 
-If using sqlite3 then simply copy the template file to the `config` folder:
+Instead, if you are going to use sqlite3 then simply rename the template file:
 ```bash
-cp -v free-server/db_template.sqlite3 config/db.sqlite3
+mv free-server/db_template.sqlite3 free-server/db.sqlite3
 ```
 
 ## Build and run the container
