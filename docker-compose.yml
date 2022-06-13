@@ -11,9 +11,9 @@ volumes:
   
 services:
   
-  db:
+  wpa-db:
     image: mariadb
-    container_name: mariadb
+    container_name: wpa-mariadb
     hostname: ${host}
     restart: always
     volumes:
@@ -25,11 +25,11 @@ services:
       - MYSQL_PASSWORD=${password}
       - TZ=${TZ}
   
-  webapp:
+  wpa-app:
     build:
       context: ./
-    container_name: webapp
-    hostname: webapp
+    container_name: wpa-app
+    hostname: wpa-app
     restart: always
     ports:
       - 8000:8000
