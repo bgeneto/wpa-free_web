@@ -8,13 +8,13 @@ RUN pip install --upgrade pip \
  && pip install --no-warn-script-location --no-cache-dir --user -r /tmp/REQUIREMENTS.txt
 
 FROM builder AS app 
-COPY ./packages.txt /tmp/
 ARG INSTDIR=/free-server
-COPY ./free-server/ $INSTDIR/ 
+COPY ./packages.txt /tmp/
+COPY ./free-server/ $INSTDIR/
+COPY ./config/.env $INSTDIR/freeweb/.env
 WORKDIR $INSTDIR
 ENV PATH=/root/.local/bin:$PATH
 RUN apt-get update && xargs apt-get install -y </tmp/packages.txt
-COPY ./config/.env $INSTDIR/freeweb/.env
 RUN python3 manage.py collectstatic
 #RUN python3 manage.py makemigrations
 #RUN python3 manage.py migrate
