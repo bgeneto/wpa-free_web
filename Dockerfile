@@ -12,7 +12,9 @@ ARG INSTDIR=/free-server
 COPY ./packages.txt /tmp/
 COPY ./free-server/ $INSTDIR/
 COPY ./config/.env $INSTDIR/freeweb/.env
-RUN echo -e "[client]\n$(cat .env)" > $INSTDIR/my.cnf
+COPY .env /tmp/.env
+RUN echo "[client]\n$(cat /tmp/.env)" > $INSTDIR/my.cnf
+RUN rm /tmp/.env
 WORKDIR $INSTDIR
 ENV PATH=/root/.local/bin:$PATH
 RUN apt-get update && xargs apt-get install -y </tmp/packages.txt
