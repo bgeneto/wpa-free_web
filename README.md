@@ -37,27 +37,29 @@ Rename `.env.tmp` file inside the `config` folder to `.env` and change the requi
 mv config/.env.tmp config/.env
 ```
 
-If you are going to use mariadb DBMS then also rename the `my.cnf.tmp` file (to `my.cnf`) inside the `free-server` folder and edit its contents accordingly.
+If you are going to use mariadb DBMS then also rename the `.env.tmp` file (to `.env`) inside the root folder and edit its contents accordingly.
 ```bash
-mv free-server/my.cnf.tmp free-server/my.cnf
+mv .env.tmp .env
 ```
 
-Now import the template sql file to your mariadb container: 
+Now import the initial template sql file to your mariadb container: 
 
 ```
-docker exec -i mariadb mysql --user=<freewebdbuser> --password=<freewebdbuserpasswd> freeweb < ./free-server/freeweb-mariadb-template.sql
+docker exec -i wpa-mariadb mysql --user=<freewebdbuser> --password=<freewebdbuserpasswd> freeweb < ./free-server/freeweb-mariadb-template.sql
 ``` 
 
 Instead, if you are going to use sqlite3 then simply rename the template file:
+
 ```bash
 mv free-server/db_template.sqlite3 free-server/db.sqlite3
 ```
 
 ## Build and run the container
+
 Now you can build and run the container by simply issuing: 
 
 ```bash
-docker compose up -d
+docker compose up -d --build
 ```
 
 ## Debug errors
@@ -65,5 +67,5 @@ docker compose up -d
 Check docker logs if debug is needed:
 
 ```bash
-docker logs webapp
+docker logs wpa-app
 ```
