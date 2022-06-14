@@ -42,17 +42,12 @@ If you are going to use mariadb DBMS then also rename the `.env.tmp` file (to `.
 mv .env.tmp .env
 ```
 
-Now import the initial template sql file to your mariadb container: 
-
-```
-docker exec -i wpa-mariadb mysql --user=<freewebdbuser> --password=<freewebdbuserpasswd> freeweb < ./free-server/freeweb-mariadb-template.sql
-``` 
-
 Instead, if you are going to use sqlite3 then simply rename the template file:
 
 ```bash
 mv free-server/db_template.sqlite3 free-server/db.sqlite3
 ```
+
 
 ## Build and run the container
 
@@ -61,6 +56,15 @@ Now you can build and run the container by simply issuing:
 ```bash
 docker compose up -d --build
 ```
+
+## Import database initial data
+
+
+If using mysql/postgres then import the initial template sql file to your db container: 
+
+```
+docker exec -i wpa-mariadb mysql --user=<freewebdbuser> --password=<freewebdbuserpasswd> freeweb < ./free-server/freeweb-mariadb-template.sql
+``` 
 
 ## Debug errors
 
