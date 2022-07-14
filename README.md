@@ -21,7 +21,7 @@ sudo apt install git docker-compose-plugin
 Besides cloning this repo to a directory of your choice (e.g. /opt/docker), you will also need to clone the original FREE_Web repo to the `free-server` folder, just like this:
 
 ```bash
-mkdir -p /opt/docker
+sudo mkdir -p /opt/docker
 cd /opt/docker
 sudo git clone https://github.com/bgeneto/wpa-free_web.git
 sudo chown -R $USER:$USER /opt/docker/wpa-free_web
