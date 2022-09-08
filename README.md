@@ -24,8 +24,8 @@ Besides cloning this repo to a directory of your choice (e.g. /opt/docker), you 
 sudo mkdir -p /opt/docker
 cd /opt/docker
 sudo git clone https://github.com/bgeneto/wpa-free_web.git
-sudo chown -R $USER:$USER /opt/docker/wpa-free_web
-cd wpa-free_web
+sudo chown -R $USER:$USER ./wpa-free_web
+cd ./wpa-free_web
 git clone --recursive -b dev-unb https://github.com/e-lab-FREE/FREE_Web.git ./free-server
 ```
 
