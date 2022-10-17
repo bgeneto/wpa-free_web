@@ -9,16 +9,16 @@ RUN pip install --upgrade pip \
 
 FROM builder AS app 
 ARG INSTDIR=/free-server
+ENV PATH=/root/.local/bin:$PATH
 COPY ./packages.txt /tmp/
+RUN apt-get update && xargs apt-get install -y </tmp/packages.txt
 COPY ./free-server/ $INSTDIR/
 COPY ./config/.env $INSTDIR/freeweb/.env
 COPY .env /tmp/.env
 RUN echo "[client]\n$(cat /tmp/.env)" > $INSTDIR/my.cnf
 RUN rm /tmp/.env
 WORKDIR $INSTDIR
-ENV PATH=/root/.local/bin:$PATH
-RUN apt-get update && xargs apt-get install -y </tmp/packages.txt
-RUN python3 manage.py collectstatic
+RUN python3 manage.py collectstatic --noinput
 #RUN python3 manage.py makemigrations
 #RUN python3 manage.py migrate
 RUN python3 ./manage.py compilemessages

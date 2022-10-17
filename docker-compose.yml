@@ -40,3 +40,18 @@ services:
       - TZ=${TZ}
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+  wpa-proxy:
+    image: caddy:latest
+    container_name: wpa-proxy
+    hostname: wpa-proxy
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./data/Caddyfile:/etc/caddy/Caddyfile
+      - ./data:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
