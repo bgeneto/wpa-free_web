@@ -1,0 +1,21 @@
+{
+        email your_admin@email.com
+}
+
+wpa.ist.com {
+        route /janus* {
+                reverse_proxy 199.99.99.199:8088 {
+                        header_up X-Forwarded-Host {host}
+                        header_up X-Real-IP {remote_host}
+                }
+        }
+        reverse_proxy 199.99.99.199:8000 {
+                header_up X-Forwarded-Host {host}
+                header_up X-Real-IP {remote_host}
+        }
+        header {
+                # enable HSTS
+                Strict-Transport-Security "max-age=31536000; includeSubdomains;"
+        }
+}
+
