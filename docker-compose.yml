@@ -40,6 +40,8 @@ services:
       - TZ=${TZ}
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    depends_on:
+      - wpa-db
 
   wpa-proxy:
     image: caddy:latest
